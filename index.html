@@ -103,7 +103,6 @@
     <table class="min-w-full table-auto text-center" style="table-layout: auto;">
       <thead class="bg-purple-800 text-white">
         <tr>
-          <th class="px-4 py-2">استان</th>
           <th class="px-4 py-2">شهر</th>
           <th class="px-6 py-2">صنف</th>
           <th class="px-7 py-2">فروشگاه</th>
@@ -141,8 +140,8 @@
       Papa.parse(csv, {
         header: true,
         complete: function(results) {
-          allRows = results.data.filter(row => row["استان"]);
-          allRows.sort((a, b) => a["استان"].localeCompare(b["استان"], 'fa'));
+          allRows = results.data.filter(row => row["شهر"]);
+          allRows.sort((a, b) => a["شهر"].localeCompare(b["شهر"], 'fa'));
           filteredRows = [...allRows]; // شروع با همه داده‌ها
           renderTable();
           renderPagination();
@@ -160,7 +159,6 @@
       const tr = document.createElement("tr");
       tr.className = "hover:bg-gray-50";
       tr.innerHTML = `
-       <td class="px-4 py-3">${row["استان"]}</td>
        <td class="px-4 py-3">${row["شهر"]}</td>
        <td class="px-4 py-3">${row["صنف"]}</td>
        <td class="px-4 py-3">${row["نام فروشگاه"]}</td>
@@ -246,9 +244,7 @@
   const matches = row["شهر"].toUpperCase().includes(city) &&
                   row["صنف"].toUpperCase().includes(category) &&
                   row["نام فروشگاه"].toUpperCase().includes(store);
-  const inProvince = !selectedProvince || row["استان"] === selectedProvince;
-
-  return matches && inProvince;
+  return matches;
 });
   }
 
