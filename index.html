@@ -312,10 +312,6 @@
     `);
   }
 
-  function showMessageModal(message) {
-    openModal(`<div class="text-gray-700 text-center text-lg">${message}</div>`);
-  }
-
   function openModal(content) {
     document.getElementById("modalContent").innerHTML = content;
     document.getElementById("modal").classList.remove("hidden");
