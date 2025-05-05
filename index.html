@@ -47,7 +47,7 @@
     }
     .subtitle {
         color: black;
-        font-size: 20px;
+        font-size: 17px;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
         margin-bottom: 10px;
     }
@@ -159,17 +159,6 @@
         }
       });
     });
-  let selectedProvince = null;
-  function filterByProvince(province) {
-  selectedProvince = province;
-  document.getElementById("searchCity").value = "";
-  document.getElementById("searchStore").value = "";
-  document.getElementById("searchCategory").value = "";
-  filteredRows = allRows.filter(row => row["استان"] === province);
-  currentPage = 1;
-  renderTable();
-  renderPagination();
-}
   function renderTable() {
     const tbody = document.getElementById("storeTable");
     tbody.innerHTML = "";
@@ -294,7 +283,7 @@
           <li>ارائه پنل اختصاصی به مشتریان به منظور مشاهده آنلاین وضعیت خرید کالا، تعداد و مبالغ اقساط، وضعیت پرداخت اقساط</li>
           <li>امکان مشاهده آنلاین فروشگاه‌ها و مراکز طرف قرارداد بانک</li>
           <li>احراز هویت و اعتبارسنجی آنلاین مشتریان هنگام استفاده از طرح های موجود</li>
-          <li>امکان تایید آنلاین اجازه نامه برداشت از حساب توسط مشتریان بدون مراجعه به شعب بانک</li>
+          <li>کسر اقساط به صورت خودکار از حساب مشتری</li>
         </ul>
       </div>
     `);
